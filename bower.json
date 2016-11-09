@@ -1,0 +1,21 @@
+{
+  "name": "hx-utils",
+  "main": "hx-utils.js",
+  "version": "0.0.1",
+  "authors": [
+    "Sandro Tajè <sandro.taje@holonix.it>"
+  ],
+  "description": "Holonix utils",
+  "keywords": [
+    "utils"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
