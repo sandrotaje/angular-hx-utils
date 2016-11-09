@@ -1,6 +1,6 @@
 {
   "name": "hx-utils",
-  "main": "hx-utils.js",
+  "main": "angular-hx-utils.js",
   "version": "0.0.1",
   "authors": [
     "Sandro Tajè <sandro.taje@holonix.it>"
