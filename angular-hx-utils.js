@@ -1,4 +1,4 @@
-angular.module('hxUtils')
+angular.module('hxUtils', [])
     .filter('millisecondsToTimeString', function () {
         return function (millseconds) {
             var neg = false;
