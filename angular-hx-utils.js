@@ -103,4 +103,71 @@ angular.module('hxUtils', [])
             return input;
         };
     })
+    .directive("hxDonuts", function () {
+        return {
+            restrict: "C",
+            scope: {
+                options: "=?",
+                value: "=",
+                title: "=",
+                subtitle: "=",
+                name: "="
+            },
+            link: function ($scope, element, attr) {
+                var _defaultOptions = {
+                    frontStrokeColors: ["#11c1f3"],
+                    frontStrokeWidth: 4,
+                    backStrokeColor: "#141718",
+                    backStrokeWidth: 4,
+                    borderStrokeColor: "#51545a",
+                    borderStrokeWidth: 1
+                };
+
+
+
+                var loadOptions = function() {
+                    if (!$scope.options) {
+                        $scope.options = {};
+                    }
+
+                    $scope.frontStrokeColors = $scope.options.frontStrokeColors ? $scope.options.frontStrokeColors : _defaultOptions.frontStrokeColors;
+                    $scope.frontStrokeWidth = $scope.options.frontStrokeWidth ? $scope.options.frontStrokeWidth : _defaultOptions.frontStrokeWidth;
+                    $scope.backStrokeColor = $scope.options.backStrokeColor ? $scope.options.backStrokeColor : _defaultOptions.backStrokeColor;
+                    $scope.backStrokeWidth = $scope.options.backStrokeWidth ? $scope.options.backStrokeWidth : _defaultOptions.backStrokeWidth;
+                    $scope.borderStrokeColor = $scope.options.borderStrokeColor ? $scope.options.borderStrokeColor : _defaultOptions.borderStrokeColor;
+                    $scope.borderStrokeWidth = $scope.options.borderStrokeWidth ? $scope.options.borderStrokeWidth : _defaultOptions.borderStrokeWidth;
+                };
+                loadOptions();
+
+
+                $scope.dashArray = 264;
+                $scope.dashOffset = 264;
+
+
+                $scope.$watch("value", function () {
+                    var j = Math.ceil($scope.frontStrokeColors.length * $scope.value / 100) - 1;
+                    $scope.frontStrokeColor = $scope.frontStrokeColors[j];
+
+                    $scope.dashOffset = $scope.dashArray - $scope.value * $scope.dashArray / 100;
+                    $scope.deg = 90 - ($scope.value / 100 * 360) / 2;
+
+                    //because if it is less than zero it means that is over 100%
+                    if ($scope.dashOffset < 0) {
+                        $scope.dashOffset = 0;
+                        $scope.deg = 0;
+                        $scope.frontStrokeColor = $scope.frontStrokeColors[$scope.frontStrokeColors.length-1];
+                    }
+
+
+                });
+
+                $scope.$watch("options", function () {
+                    loadOptions();
+                });
+
+
+            },
+            template: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" perserveAspectRatio="xMinYMid" style="transform: rotate({{deg}}deg);">        <g>            <circle style="fill:none;" r="49" cy="50%" cx="50%"  stroke="{{borderStrokeColor}}" stroke-width="{{borderStrokeWidth}}"></circle>            <circle style="fill:none;" r="42" cy="50%" cx="50%" stroke="{{backStrokeColor}}" stroke-width="{{backStrokeWidth}}"></circle>            <circle style="fill:none;" id="circle" r="42" cy="50%" cx="50%" stroke-dasharray="{{dashArray}}" stroke-dashoffset="{{dashOffset}}"  stroke="{{frontStrokeColor}}" stroke-width="{{frontStrokeWidth}}"></circle>        </g>        <h1>{{title}}</h1>        <h2>{{name}}</h2>        <h3>{{subtitle}}</h3></svg>'
+        }
+    })
 ;
