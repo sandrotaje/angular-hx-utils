@@ -1,0 +1,19 @@
+{
+  "name": "angular-hx-utils",
+  "version": "1.0.0",
+  "description": "Holonix utils",
+  "main": "angular-hx-utils.js,angular-hx-utils.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandrotaje/angular-hx-utils.git"
+  },
+  "author": "Sandro Tajè",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandrotaje/angular-hx-utils/issues"
+  },
+  "homepage": "https://github.com/sandrotaje/angular-hx-utils#readme"
+}
