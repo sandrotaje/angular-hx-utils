@@ -2,7 +2,7 @@
   "name": "angular-hx-utils",
   "version": "1.0.0",
   "description": "Holonix utils",
-  "main": "angular-hx-utils.js,angular-hx-utils.css",
+  "main": "angular-hx-utils.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
