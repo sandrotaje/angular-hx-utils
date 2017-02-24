@@ -32,6 +32,34 @@ angular.module('hxUtils', [])
             return timeString;
         };
     })
+    .filter('millisecondsToCronString', function () {
+        return function (millseconds) {
+            var neg = false;
+            if (millseconds < 0) {
+                millseconds = -millseconds;
+                neg = true;
+            }
+
+            var seconds = Math.floor(millseconds / 1000);
+            var hours = Math.floor(seconds / 3600);
+            var minutes = Math.floor((seconds % 3600) / 60);
+
+            var secondsRemaining = Math.floor(seconds % 60);
+
+            function pad(n, width, z) {
+                z = z || '0';
+                n = n + '';
+                return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+            }
+
+            var timeString = pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2);
+
+            if (neg)
+                timeString = "-" + timeString;
+
+            return timeString;
+        };
+    })
     .filter('millisecondsToHxDonuts', ['$filter', function ($filter) {
         return function (millseconds) {
             var neg = false;
@@ -125,7 +153,7 @@ angular.module('hxUtils', [])
 
 
 
-                var loadOptions = function() {
+                var loadOptions = function () {
                     if (!$scope.options) {
                         $scope.options = {};
                     }
@@ -155,7 +183,7 @@ angular.module('hxUtils', [])
                     if ($scope.dashOffset < 0) {
                         $scope.dashOffset = 0;
                         $scope.deg = 0;
-                        $scope.frontStrokeColor = $scope.frontStrokeColors[$scope.frontStrokeColors.length-1];
+                        $scope.frontStrokeColor = $scope.frontStrokeColors[$scope.frontStrokeColors.length - 1];
                     }
 
 
@@ -170,4 +198,4 @@ angular.module('hxUtils', [])
             template: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" perserveAspectRatio="xMinYMid" style="transform: rotate({{deg}}deg);">        <g>            <circle style="fill:none;" r="49" cy="50%" cx="50%"  stroke="{{borderStrokeColor}}" stroke-width="{{borderStrokeWidth}}"></circle>            <circle style="fill:none;" r="42" cy="50%" cx="50%" stroke="{{backStrokeColor}}" stroke-width="{{backStrokeWidth}}"></circle>            <circle style="fill:none;" id="circle" r="42" cy="50%" cx="50%" stroke-dasharray="{{dashArray}}" stroke-dashoffset="{{dashOffset}}"  stroke="{{frontStrokeColor}}" stroke-width="{{frontStrokeWidth}}"></circle>        </g>        <h1>{{title}}</h1>        <h2>{{name}}</h2>        <h3>{{subtitle}}</h3></svg>'
         }
     })
-;
+    ;
