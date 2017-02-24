@@ -52,7 +52,7 @@ angular.module('hxUtils', [])
                 return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
             }
 
-            var timeString = pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2);
+            var timeString = pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(secondsRemaining, 2);
 
             if (neg)
                 timeString = "-" + timeString;
