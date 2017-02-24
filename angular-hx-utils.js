@@ -32,7 +32,7 @@ angular.module('hxUtils', [])
             return timeString;
         };
     })
-    .filter('millisecondsToHxDonuts', function ($filter) {
+    .filter('millisecondsToHxDonuts', ['$filter', function ($filter) {
         return function (millseconds) {
             var neg = false;
             if (millseconds < 0) {
@@ -88,7 +88,7 @@ angular.module('hxUtils', [])
 
             return hxDonuts;
         };
-    })
+    }])
     .filter("emptyDateFilter", function () {
         return function (input) {
             if (!input)
