@@ -195,7 +195,7 @@ angular.module('hxUtils', [])
 
 
             },
-            template: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" perserveAspectRatio="xMinYMid" style="transform: rotate({{deg}}deg);">        <g>            <circle style="fill:none;" r="49" cy="50%" cx="50%"  stroke="{{borderStrokeColor}}" stroke-width="{{borderStrokeWidth}}"></circle>            <circle style="fill:none;" r="42" cy="50%" cx="50%" stroke="{{backStrokeColor}}" stroke-width="{{backStrokeWidth}}"></circle>            <circle style="fill:none;" id="circle" r="42" cy="50%" cx="50%" stroke-dasharray="{{dashArray}}" stroke-dashoffset="{{dashOffset}}"  stroke="{{frontStrokeColor}}" stroke-width="{{frontStrokeWidth}}"></circle>        </g>        <h1>{{title}}</h1>        <h2>{{name}}</h2>        <h3>{{subtitle}}</h3></svg>'
+            template: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" perserveAspectRatio="xMinYMid" style="transform: rotate({{deg}}deg);">        <g>            <circle style="fill:none;" r="49" cy="50%" cx="50%"  stroke="{{borderStrokeColor}}" stroke-width="{{borderStrokeWidth}}"></circle>            <circle style="fill:none;" r="42" cy="50%" cx="50%" stroke="{{backStrokeColor}}" stroke-width="{{backStrokeWidth}}"></circle>            <circle style="fill:none;" id="circle" r="42" cy="50%" cx="50%" stroke-dasharray="{{dashArray}}" stroke-dashoffset="{{dashOffset}}"  stroke="{{frontStrokeColor}}" stroke-width="{{frontStrokeWidth}}"></circle>        </g>        </svg><h1>{{title}}</h1>        <h2>{{name}}</h2>        <h3>{{subtitle}}</h3>'
         }
     })
     ;
